@@ -14,7 +14,7 @@
             }
         },
         computed:{
-            ...mapGetters(['topTitle'])
+            // ...mapGetters(['topTitle'])
         },
         created(){
             

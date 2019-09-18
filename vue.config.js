@@ -80,9 +80,9 @@ module.exports = {
         chunks: 'all'
     })    
     // 项目文件大小分析
-    config
-    .plugin('webpack-bundle-analyzer')
-    .use(require('webpack-bundle-analyzer').BundleAnalyzerPlugin)
+    // config
+    // .plugin('webpack-bundle-analyzer')
+    // .use(require('webpack-bundle-analyzer').BundleAnalyzerPlugin)
     // 对vue-cli内部的 webpack 配置进行更细粒度的修改。
     // 添加CDN参数到htmlWebpackPlugin配置中， 详见public/index.html 修改
     config

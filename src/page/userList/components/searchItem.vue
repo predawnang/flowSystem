@@ -10,7 +10,7 @@
                 <el-input v-model="search_data.name" placeholder="请输入搜索关键字"  @keyup.enter.native='onScreeoutMoney("search_data")'></el-input>
             </el-form-item>
             <el-form-item>
-                <el-button type="primary" size ="mini" icon="search" @click='onScreeoutMoney("search_data")'>筛选</el-button>
+                <el-button type="primary" size ="mini" icon="search" @click='onScreeoutMoney("search_data")'>查询</el-button>
             </el-form-item>
 
             <el-form-item class="btnRight">

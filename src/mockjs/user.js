@@ -5,6 +5,7 @@ import * as mUtils from '@/utils/mUtils'
 let List = []
 const count = 1000
 let typelist = ['联通', '移动', '电信', '铁通']
+let companyList= ['麦可思数据有限公司','深圳市拓普图像科技有限公司','深圳市车米云图科技有限公司','亚太导航科技有限公司','链动科技有限公司']
 
 for (let i = 0; i < count; i++) {
   List.push(Mock.mock({
@@ -18,7 +19,10 @@ for (let i = 0; i < count; i++) {
     region:Mock.mock('@region'),
     areaId:/\d{7}/,
     email: Mock.Random.email(),
-    'isp|1': typelist
+    'isp|1': typelist,
+    'company|1': companyList,
+    companyIndex: /\d{7}/,
+    tel: 18603059551,
   }))
 }
 

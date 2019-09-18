@@ -75,20 +75,30 @@ export const asyncRouterMap = [
 		name: 'userManage',
 		component:Layout,
 		meta: {
-			title:'用户管理',
+			title:'企业管理',
 			icon: 'fa-user',
 		},
 		noDropdown:true,
 		children:[
 			{
-				path:'userList', 
+				path:'userList',
+				name:'userManage1', 
 				meta:{
-					title:'用户管理', 
+					title:'企业管理', 
 					icon:'fa-user',
-				  routerType:'leftmenu'
+				  	routerType:'leftmenu'
 				},
 				component: () => import('@/page/userList/userList'),
-			}
+			},
+			// {
+			// 	path:'userAccount', 
+			// 	meta:{
+			// 		title:'企业账号管理', 
+			// 		icon:'fa-user',
+			// 	  	routerType:'leftmenu'
+			// 	},
+			// 	component: () => import('@/page/userList/userAccount'),
+			// }
 		]
 	},
 	// {
@@ -125,35 +135,38 @@ export const asyncRouterMap = [
 		   path:'infoShow',
 		   name:'infoShow',
 		   meta: {
-					title:'个人信息',
+					title:'设备列表',
 					icon: 'fa-asterisk',
 					routerType:'leftmenu',
-					titleList:[
-						{"path":"infoShow1","title":"个人信息子菜单1"},
-						{"path":"infoShow2","title":"个人信息子菜单2"},
-						{"path":"infoShow3","title":"个人信息子菜单3"},
-						{"path":"infoShow4","title":"个人信息子菜单4"},
-						{"path":"infoShow5","title":"个人信息子菜单5"}
-					]	
+					// titleList:[
+					// 	{"path":"infoShow1","title":"个人信息子菜单1"},
+					// 	{"path":"infoShow2","title":"个人信息子菜单2"},
+					// 	{"path":"infoShow3","title":"个人信息子菜单3"},
+					// 	{"path":"infoShow4","title":"个人信息子菜单4"},
+					// 	{"path":"infoShow5","title":"个人信息子菜单5"}
+					// ]	
 			 },
-	  	 component:Content,
-			 children:filterTopRouterMap('infoShow')
+	  	//  component:Content,
+		// 	 children:filterTopRouterMap('infoShow')
+		component: () => import('@/page/infoManage/infoShow'),
+
 		},
 		{
 			path:'infoModify',
 			name:'infoModify',
 			meta: {
-				title:'修改信息',
+				title:'设备分布',
 				icon: 'fa-asterisk',
 				routerType:'leftmenu',
-				titleList:[
-					{"path":"infoModify1","title":"修改信息子菜单1"},
-					{"path":"infoModify2","title":"修改信息子菜单2"},
-					{"path":"infoModify3","title":"修改信息子菜单3"}
-				]
+				// titleList:[
+				// 	{"path":"infoModify1","title":"修改信息子菜单1"},
+				// 	{"path":"infoModify2","title":"修改信息子菜单2"},
+				// 	{"path":"infoModify3","title":"修改信息子菜单3"}
+				// ]
 			},
-			component:Content,
-			children:filterTopRouterMap('infoModify')
+			// component:Content,
+			// children:filterTopRouterMap('infoModify')
+			component: () => import('@/page/infoManage/infoModify'),
 		 }
 	  ]
 	},
@@ -170,7 +183,7 @@ export const asyncRouterMap = [
 			path:'fundList',
 			name:'fundList',
 			meta: {
-					title:'资金流水',
+					title:'流量流水',
 					icon: 'fa-asterisk',
 					routerType:'leftmenu'
 			},
@@ -180,7 +193,7 @@ export const asyncRouterMap = [
 			path:'chinaTabsList',
 			name:'chinaTabsList',
 			meta: {
-				title:'区域投资',
+					title:'流量购买',
 					icon: 'fa-asterisk',
 					routerType:'leftmenu'
 			},

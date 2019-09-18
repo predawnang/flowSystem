@@ -4,7 +4,7 @@ import { getMoneyIncomePay } from '@/api/money'  // 导入资金信息相关接�
 const money = {
   state: {
      addFundDialog: {
-        title:'新增资金信息',
+        title:'新增企业用户信息',
         type:'add'
      },
      search: {
@@ -22,10 +22,10 @@ const money = {
   mutations: {
     SET_DIALOG_TITLE: (state, type) => {
       if(type === 'add'){
-        state.addFundDialog.title = '新增资金信息'
+        state.addFundDialog.title = '新增企业用户信息'
         state.addFundDialog.type = 'add'
       }else{
-        state.addFundDialog.title = '编辑资金信息'
+        state.addFundDialog.title = '编辑企业用户信息'
         state.addFundDialog.type = 'edit'
       }
     },

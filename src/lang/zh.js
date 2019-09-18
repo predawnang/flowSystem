@@ -8,6 +8,7 @@ const zh = {
     hi: '您好',
     index: '首页',
     userManage: '企业管理',
+    userManage1: '企业列表',
     share: '分享功能',
     infoManage: '设备管理',
     infoShow: '设备列表',

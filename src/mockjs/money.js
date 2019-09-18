@@ -4,8 +4,9 @@ import * as mUtils from '@/utils/mUtils'
 
 
 let List = []
-const count = 60
+const count = 300
 let typelist = [1, 2, 3, 4, 5, 6, 7, 8]
+let companyList= ['麦可思数据有限公司','深圳市拓普图像科技有限公司','深圳市车米云图科技有限公司','亚太导航科技有限公司','链动科技有限公司']
 
 for (let i = 0; i < count; i++) {
   List.push(Mock.mock({
@@ -16,7 +17,18 @@ for (let i = 0; i < count; i++) {
     income: Mock.Random.float(0, 9999, 2,2),
     pay: Mock.Random.float(-5999, 0, 2,2),
     accoutCash: Mock.Random.float(0, 9999, 2,2),
-    'incomePayType|1': typelist
+    'incomePayType|1': typelist,
+    sortnum: i + 1,
+    createTime: Mock.Random.datetime(),
+    updateTime: Mock.Random.now(),
+    ip:Mock.mock('@ip'),
+    region:Mock.mock('@region'),
+    areaId:/\d{7}/,
+    email: Mock.Random.email(),
+    'isp|1': typelist,
+    'company|1': companyList,
+    companyIndex: /\d{7}/,
+    tel: 18603059551,
   }))
 }
 
