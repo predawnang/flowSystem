@@ -1,13 +1,14 @@
 <template>
   <div class="search_container searchArea">
         <el-form 
+            onSubmit="return false"
             :inline="true" 
             :model='search_data' 
             :rules="rules"
             ref="search_data" 
             class="demo-form-inline search-form">
             <el-form-item label="">
-                <el-input v-model="search_data.name" placeholder="请输入搜索关键字"  @keyup.enter.native='onScreeoutMoney("search_data")'></el-input>
+                <el-input class="inputText" v-model="search_data.name" placeholder="请输入搜索公司名称"  @keyup.enter.native='onScreeoutMoney("search_data")'></el-input>
             </el-form-item>
             <el-form-item>
                 <el-button type="primary" size ="mini" icon="search" @click='onScreeoutMoney("search_data")'>查询</el-button>
@@ -36,7 +37,7 @@
             },
             rules: {
                 name: [
-                    { required: true, message: '请输入搜索关键字', trigger: 'blur' },
+                    { required: true, message: '请输入搜索公司名称', trigger: 'blur' },
                 ]
             }
           }
@@ -69,6 +70,11 @@
 <style lang="less" scoped>
     .search_container{
         margin-bottom: 20px;
+        .search-form {
+            .inputText {
+                width: 320px;
+            }
+        }
     }
     .btnRight{
         float: right;

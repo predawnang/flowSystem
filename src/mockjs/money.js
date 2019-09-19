@@ -42,7 +42,7 @@ export default {
   getMoneyList: config => {
     const { name, page = 1, limit = 20 } = mUtils.param2Obj(config.url)
     const mockList = List.filter(user => {
-      if (name && user.username.indexOf(name) === -1) return false
+      if (name && user.company.indexOf(name) === -1) return false
       return true
     })
     const pageList = mockList.filter((item, index) => index < limit * page && index >= limit * (page - 1))
@@ -134,6 +134,16 @@ export default {
         u.pay = pay
         u.accoutCash = accoutCash
         u.incomePayType = incomePayType
+
+        // u.createTime= createTime,
+        // u.updateTime= updateTime,
+        // u.ip= ip,
+        // u.region= region,
+        // u.areaId= areaId,
+        // u.email= email,
+        // u.company= company,
+        // u.companyIndex= companyIndex,
+        // u.tel= tel
         return true
       }
     })

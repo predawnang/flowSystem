@@ -18,20 +18,20 @@
                     <el-input type="text" v-model="form.companyName"></el-input>
                 </el-form-item>
 
-                <el-form-item prop='income'  label="业务负责人:">
-                    <el-input type="number" v-model.number="form.income"></el-input>
+                <el-form-item prop='userName'  label="业务负责人:">
+                    <el-input type="text" v-model.number="form.userName"></el-input>
                 </el-form-item>
 
-                <el-form-item prop='pay' label="负责人电话:">
-                    <el-input type="number" v-model.number="form.pay"></el-input>
+                <el-form-item prop='tel' label="负责人电话:">
+                    <el-input type="text" v-model.number="form.tel"></el-input>
                 </el-form-item>
 
-                <el-form-item prop='accoutCash' label="负责人邮箱:">
-                    <el-input type="number" v-model.number="form.accoutCash"></el-input>
+                <el-form-item prop='email' label="负责人邮箱:">
+                    <el-input type="text" v-model.number="form.email"></el-input>
                 </el-form-item>
                 
-                <el-form-item prop='accoutCash' label="企业地址:">
-                    <el-input type="number" v-model.number="form.accoutCash"></el-input>
+                <el-form-item prop='address' label="企业地址:">
+                    <el-input type="text" v-model.number="form.address"></el-input>
                 </el-form-item>
 
                 <el-form-item label="备注:">
@@ -58,31 +58,27 @@
           let validateData = (rule, value, callback) => {
                 if(value === ''){
                     let text;
-                    if(rule.field == "income"){
-                        text='收入';
-                    }else if(rule.field == "pay"){
-                        text='支出';
-                    }else{
-                        text='账户现金';
+                    if(rule.field == "userName"){
+                        text='业务负责人';
+                    }else if(rule.field == "tel"){
+                        text='电话';
+                    }else if(rule.field == "email"){
+                        text='邮箱';
+                    }else if(rule.field == "address"){
+                        text='企业地址';
                     }
-                    callback(new Error(text+'不能为空~'));
-                }else{
-                   let numReg = /^[0-9]+.?[0-9]*$/;
-                   if(!numReg.test(value)){
-                      callback(new Error('请输入数字值'));
-                   }else{
-                      callback();
-                   }
+                    console.log(rule);
+                    // callback(new Error(text+'不能为空'));
                 }
             };
           return {
             isVisible: this.isShow,
             form:{
-                incomePayType:'',
+                address:'',
                 companyName: '',
-                income: '',
-                pay:'',
-                accoutCash:'',
+                userName: '',
+                tel:'',
+                email:'',
                 remarks: ''
             },
             payType:[
@@ -98,17 +94,20 @@
             ],
             form_rules: {
                 companyName   : [
-                    {required: true, message : '用户名不能为空！',trigger : 'blur'}
+                    {required: true, message : '用户名不能为空',trigger : 'blur'}
                 ],
-                income   : [
+                userName   : [
                     { required: true, validator:validateData,trigger: 'blur'},
                 ],
-                pay   : [
+                tel   : [
                     { required: true, validator:validateData,trigger: 'blur'},
                 ],
-                accoutCash   : [
+                email   : [
                     { required: true, validator:validateData,trigger: 'blur'},
                 ],
+                address   : [
+                    { required: true, validator:validateData,trigger: 'blur'},
+                ]
             },
             //详情弹框信息
             dialog: {

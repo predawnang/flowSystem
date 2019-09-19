@@ -10,7 +10,7 @@ import zhLocale from './zh'
  
 // 注册i18n实例并引入语言文件，文件格式等下解析
 const i18n = new VueI18n({
-  locale: getToken('lang') || 'en',
+  locale: getToken('lang') || 'zh',
   messages: {
     zh: {
       ...zhLocale
