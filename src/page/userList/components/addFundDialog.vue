@@ -14,12 +14,12 @@
                 :label-width="dialog.formLabelWidth" 
                 style="margin:10px;width:auto;">
 
-                <el-form-item prop='companyName' label="企业名称:">
-                    <el-input type="text" v-model="form.companyName"></el-input>
+                <el-form-item prop='company' label="企业名称:">
+                    <el-input type="text" v-model="form.company"></el-input>
                 </el-form-item>
 
-                <el-form-item prop='userName'  label="业务负责人:">
-                    <el-input type="text" v-model.number="form.userName"></el-input>
+                <el-form-item prop='username'  label="业务负责人:">
+                    <el-input type="text" v-model.number="form.username"></el-input>
                 </el-form-item>
 
                 <el-form-item prop='tel' label="负责人电话:">
@@ -58,7 +58,7 @@
           let validateData = (rule, value, callback) => {
                 if(value === ''){
                     let text;
-                    if(rule.field == "userName"){
+                    if(rule.field == "username"){
                         text='业务负责人';
                     }else if(rule.field == "tel"){
                         text='电话';
@@ -67,16 +67,15 @@
                     }else if(rule.field == "address"){
                         text='企业地址';
                     }
-                    console.log(rule);
-                    // callback(new Error(text+'不能为空'));
+                    callback(new Error(text+'不能为空'));
                 }
             };
           return {
             isVisible: this.isShow,
             form:{
                 address:'',
-                companyName: '',
-                userName: '',
+                company: '',
+                username: '',
                 tel:'',
                 email:'',
                 remarks: ''
@@ -93,10 +92,10 @@
                 {label:'转账',value:'8'}
             ],
             form_rules: {
-                companyName   : [
+                company   : [
                     {required: true, message : '用户名不能为空',trigger : 'blur'}
                 ],
-                userName   : [
+                username   : [
                     { required: true, validator:validateData,trigger: 'blur'},
                 ],
                 tel   : [
@@ -125,14 +124,14 @@
 
       },
       created(){
-            if(this.addFundDialog.type === 'edit'){
+           if(this.addFundDialog.type === 'edit'){
                 this.form = this.dialogRow;
-                this.form.incomePayType = (this.dialogRow.incomePayType).toString();
-                this.form.pay = -this.dialogRow.pay;
+                // this.form.incomePayType = (this.dialogRow.incomePayType).toString();
+                // this.form.pay = -this.dialogRow.pay;
             }else{
-                this.$refs['form'].resetFields()
-            }
-
+                // this.$refs['form'].resetFields();
+                // console.log(this.$refs['form']);
+            }                
       },
       mounted(){
 
@@ -149,7 +148,7 @@
           },
           //表单提交
           onSubmit(form){
-            this.$refs[form].validate((valid) => {
+            this.$refs['form'].validate((valid) => {
                 if (valid) {//表单数据验证完成之后，提交数据;
                     let formData = this[form];
                     const para = Object.assign({}, formData)

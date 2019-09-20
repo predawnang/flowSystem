@@ -250,6 +250,7 @@
             onEditMoney(row){
                 this.addFundDialog.dialogRow = row;
                 this.showAddFundDialog();
+                // console.log(row);
             },
             // 删除数据
             onDeleteMoney(row){
