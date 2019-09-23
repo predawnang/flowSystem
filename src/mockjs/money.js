@@ -6,7 +6,11 @@ import * as mUtils from '@/utils/mUtils'
 let List = []
 const count = 300
 let typelist = [1, 2, 3, 4, 5, 6, 7, 8]
+let modulesList= ['OGI','OG2']
 let companyList= ['麦可思数据有限公司','深圳市拓普图像科技有限公司','深圳市车米云图科技有限公司','亚太导航科技有限公司','链动科技有限公司']
+let terminalList= ['GT1100','IDP-782','CT3000','ST6100']
+let stateList= ['已激活']
+let runStateList= ['启用','停用','故障']
 
 for (let i = 0; i < count; i++) {
   List.push(Mock.mock({
@@ -28,7 +32,13 @@ for (let i = 0; i < count; i++) {
     'isp|1': typelist,
     'company|1': companyList,
     companyIndex: /\d{7}/,
+    deviceId: /\d{12}/,
     tel: 18603059551,
+    'module|1':modulesList,
+    moduleAmount: /\d{3}/,
+    'terminal|1':terminalList,
+    'state|1': stateList,
+    'runState|1': runStateList
   }))
 }
 

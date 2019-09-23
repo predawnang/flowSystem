@@ -63,7 +63,7 @@
             </el-table-column>
             <el-table-column
                 prop="ip"
-                label="ORBCOMM账号"
+                label="企业主账号"
                 align='center'
                 width="160">
             </el-table-column>
