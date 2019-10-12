@@ -10,35 +10,27 @@
                 @select="selectTable"
                 @select-all="selectAll"
                 >
-              <el-table-column
-                v-if="idFlag"
-                prop="id"
-                label="id"
-                align='center'
-                width="180">
-            </el-table-column>
             <el-table-column
                 type="selection"
                 align='center'
                 width="40">
             </el-table-column>
               <el-table-column
-                prop="username"
-                label="用户姓名"
+                prop="serialNum"
+                label="序号"
                 align='center'
                 width="80">
             </el-table-column>
             <el-table-column
-                prop="address"
-                label="籍贯"
+                prop="companyName"
+                label="企业名称"
                 align='center'
                 >
             </el-table-column>
             <el-table-column
-                prop="createTime"
-                label="投资时间"
+                prop="orb_Account"
+                label="ORBCOMM账号"
                 align='center'
-                sortable
                 width="170">
                 <template slot-scope="scope">
                     <el-icon name="time"></el-icon>
@@ -46,40 +38,38 @@
                 </template>
             </el-table-column>
             <el-table-column
-                prop="incomePayType"
-                label="收支类型"
+                prop="OGI_flow"
+                label="OGI流量"
                 align='center'
                 width="130"
-                :formatter="formatterType"
-                :filters="fields.incomePayType.filter.list"
-                :filter-method="filterType">
+                >
             </el-table-column>
             <el-table-column
-                prop="income"
-                label="收入"
+                prop="OG2_flow"
+                label="OG2流量"
                 align='center'
                 width="130"
-                sortable> 
+                > 
                 <template slot-scope="scope">  
                     <span style="color:#00d053">+ {{ scope.row.income }}</span>
                 </template>
             </el-table-column>
             <el-table-column
-                prop="pay"
-                label="支出"
+                prop="state"
+                label="状态"
                 align='center'
                 width="130"
-                sortable>
+                >
                 <template slot-scope="scope">  
                     <span style="color:#f56767">{{ getPay(scope.row.pay) }}</span>
                 </template>
             </el-table-column>
             <el-table-column
-                prop="accoutCash"
-                label="账户现金"
+                prop="deductionsDate"
+                label="扣减日期"
                 align='center'
                 width="130"
-                sortable>
+                >
                 <template slot-scope="scope">  
                     <span style="color:#4db3ff">{{ scope.row.accoutCash }}</span>
                 </template>
@@ -95,13 +85,13 @@
                         icon='edit' 
                         size="mini"
                         @click='onEditMoney(scope.row)'
-                    >编辑</el-button>
+                    >充值</el-button>
                     <el-button 
                         type="danger" 
                         icon='delete' 
                         size="mini"
                         @click='onDeleteMoney(scope.row,scope.$index)'
-                    >删除</el-button>
+                    >查看更多</el-button>
                 </template>
             </el-table-column>
             </el-table>
